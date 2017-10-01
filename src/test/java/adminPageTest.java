@@ -6,15 +6,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class adminPageTest {
     @Test
-    public void loginAdminPage(){
+    public void loginAdminPage() {
         WebDriver driver = new ChromeDriver();
         driver.get("http://localhost/litecart/admin/login.php");
-        WebElement loginItem = driver.findElement(By.xpath("//*[@name='username']"));
-        loginItem.sendKeys("admin");
-        WebElement passItem = driver.findElement(By.xpath("//*[@name='password']"));
-        passItem.sendKeys("admin");
+
+////        xPath
+//        WebElement loginItem = driver.findElement(By.xpath("//*[@name='username']"));
+//       WebElement passItem = driver.findElement(By.xpath("//*[@name='password']"));
+//        WebElement submitItem = driver.findElement(By.xpath("//*[@type='submit']"));
+
+//        Простой локатор
+        WebElement loginItem = driver.findElement(By.name("username"));
+        WebElement passItem = driver.findElement(By.name("password"));
         WebElement submitItem = driver.findElement(By.xpath("//*[@type='submit']"));
+
+        loginItem.sendKeys("admin");
+        passItem.sendKeys("admin");
         submitItem.click();
-        driver.quit();
+//        driver.quit();
     }
 }
